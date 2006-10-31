@@ -39,9 +39,11 @@ TODO:
 =====
 
 * Search for another engine to replace Clanlib.
-* Implementing BulletML.
-* Making the bulletstack play nicely with BulletML.
+* Implement BulletML.
+* Make the bulletstack play nicely with BulletML.
 * Implement Lua for scripting.
-* Making BulletML play nicely with Lua.
+* Make BulletML play nicely with Lua.
+* Create the Sound subsystem.
 * Implement a simple api for level scripting.
 * Implement a powerup system.
+* Implement a bombing system.
