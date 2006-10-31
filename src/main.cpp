@@ -7,7 +7,6 @@ CL_ClanApplication app(&ShmupLoader::main);
 
 int ShmupLoader::main(const std::vector<CL_String> &args)
 {
-    // Workaround! :D
     ShmupGame game;
     game.main();
     return 0;
@@ -28,31 +27,38 @@ void ShmupGame::main()
     CL_DisplayWindow  window("Hello World!",640,480);
 
     // Alias some of the often used variables of window()
-    CL_InputDevice        keyboard = window.get_ic().get_keyboard();
+    CL_InputDevice        *keyboard = window.get_ic().get_keyboard();
     CL_GraphicContext     gc = window.get_gc();
 
     gc.clear(CL_Colorf::gray10);
     next_game_tick = CL_System::get_time();
 
-    ShmupHero hero(gc) = new ShmupHero(gc);
+    ShmupHero* hero = new ShmupHero(gc);
 
     while(! keyboard.get_keycode(CL_KEY_ESCAPE))
     {
-        if(keyboard.get_keycode(CL_KEY_UP))
-        {
-            hero.move(0,5);
-        }
-
-        if(keyboard.get_keycode(CL_KEY_DOWN))
-        {
-            hero.move(0,-5);
-        }
-        update_display(gc, hero);
-        update_game(keyboard);
+        update_display(gc, hero&);
+        update_game(keyboard&);
         window.flip();
 
         next_game_tick += skip_ticks;
         sleep_time = next_game_tick - CL_System::get_time();
         if ( sleep_time >= 0 ) sleep(sleep_time);
+    }
+
+    free(keyboard);
+    free(hero);
+}
+
+void ShmupGame::handle_input(CL_InputDevice *keyboard)
+{
+    if(keyboard.get_keycode(CL_KEY_UP))
+    {
+        hero.move(0,5);
+    }
+
+    if(keyboard.get_keycode(CL_KEY_DOWN))
+    {
+        hero.move(0,-5);
     }
 }

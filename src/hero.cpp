@@ -17,7 +17,6 @@ void ShmupHero::move(int move_x, int move_y)
 
 void ShmupHero::powerup()
 {
-    // TODO: create powerup system
 }
 
 void ShmupHero::speedup(float factor)
