@@ -1,10 +1,10 @@
 #include "main.hpp"
 
-ShmupBullet::ShmupBullet()
+Bullet::Bullet()
 {
 }
 
-int ShmupBulletStack::add_bullet()
+int BulletStack::add_bullet()
 {
     int id = -1;
 
@@ -16,7 +16,7 @@ int ShmupBulletStack::add_bullet()
     else
     {
         id = this->stack.size();
-        ShmupBullet new_bullet;
+        Bullet new_bullet;
         this->stack.push_back(new_bullet);
     }
 
@@ -24,7 +24,7 @@ int ShmupBulletStack::add_bullet()
     return id;
 }
 
-void ShmupBulletStack::free_bullet(int id)
+void BulletStack::free_bullet(int id)
 {
     this->stack[id].active = false;
     stack_free.push_back(id);

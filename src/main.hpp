@@ -10,13 +10,13 @@ extern "C"
 #include <lualib.h>
 }
 
-class ShmupLoader
+class Loader
 {
     public:
         static int main(const std::vector<CL_String> &args);
 };
 
-class ShmupGame
+class Game
 {
     public:
         void main();
@@ -25,10 +25,10 @@ class ShmupGame
         void handle_input(CL_InputDevice *keyboard)
 };
 
-class ShmupHero
+class Hero
 {
     public:
-        ShmupHero(CL_GraphicContext gc);
+        Hero(CL_GraphicContext gc);
         // Setter methods
         void move(int move_x, int move_y);
         void powerup();
@@ -46,22 +46,22 @@ class ShmupHero
         int speed;
 };
 
-class ShmupBullet
+class Bullet
 {
     public:
-        ShmupBullet();
+        Bullet();
         bool active;
 };
 
-class ShmupBulletStack
+class BulletStack
 {
     public:
-        ShmupBulletStack();
-        std::vector<ShmupBullet> stack;
+        BulletStack();
+        std::vector<Bullet> stack;
         std::vector<int> stack_free;
 
         int add_bullet();
         void free_bullet(int id);
-        ShmupBullet& get_bullet(int id);
+        Bullet& get_bullet(int id);
         void iterate_bullets();
 };

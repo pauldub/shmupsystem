@@ -1,6 +1,6 @@
 #include "main.hpp"
 
-void ShmupGame::update_display(CL_GraphicContext gc, ShmupHero* hero)
+void Game::update_display(CL_GraphicContext gc, Hero* hero)
 {
     hero.redraw();
 }

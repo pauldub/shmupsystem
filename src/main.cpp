@@ -3,16 +3,16 @@
 // Create global application object:
 // You MUST include this line or the application start-up will fail to
 // locate your console application object.
-CL_ClanApplication app(&ShmupLoader::main);
+CL_ClanApplication app(&Loader::main);
 
-int ShmupLoader::main(const std::vector<CL_String> &args)
+int Loader::main(const std::vector<CL_String> &args)
 {
-    ShmupGame game;
+    Game game;
     game.main();
     return 0;
 }
 
-void ShmupGame::main()
+void Game::main()
 {
     const int ticks_per_second = 25;
     const int skip_ticks = 1000 / ticks_per_second;
@@ -33,7 +33,7 @@ void ShmupGame::main()
     gc.clear(CL_Colorf::gray10);
     next_game_tick = CL_System::get_time();
 
-    ShmupHero* hero = new ShmupHero(gc);
+    Hero* hero = new Hero(gc);
 
     while(! keyboard.get_keycode(CL_KEY_ESCAPE))
     {
@@ -50,7 +50,7 @@ void ShmupGame::main()
     free(hero);
 }
 
-void ShmupGame::handle_input(CL_InputDevice *keyboard)
+void Game::handle_input(CL_InputDevice *keyboard)
 {
     if(keyboard.get_keycode(CL_KEY_UP))
     {
