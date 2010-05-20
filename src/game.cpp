@@ -27,8 +27,8 @@ void Game::main()
         if ( sleep_time >= 0 ) sleep(sleep_time);
     }
 
-    free(keyboard);
-    free(hero);
+    delete keyboard;
+    delete hero;
 }
 
 void Game::handle_input(Hero* hero)
@@ -51,5 +51,5 @@ void Game::update_game(Hero* hero)
 
 void Game::update_display(Hero* hero)
 {
-    hero.redraw();
+    hero->redraw();
 }

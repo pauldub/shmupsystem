@@ -42,3 +42,7 @@ int Hero::get_speed()
 {
     return this->speed;
 }
+
+void Hero::redraw()
+{
+}
