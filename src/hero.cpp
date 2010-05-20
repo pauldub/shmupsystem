@@ -1,8 +1,7 @@
-#include "main.h"
+#include "hero.h"
 
-Hero::Hero(CL_GraphicContext gc)
+Hero::Hero()
 {
-    CL_Draw::fill(gc, CL_Rectf(240.0f, 140.0f, 440.0f, 340.0f), CL_Colorf(1.0f, 1.0f, 1.0f));
     this->speed = 0.5;
 }
 
@@ -11,8 +10,8 @@ void Hero::move(int move_x, int move_y)
     // TODO: restrict the boundary of movement.
     float speed_factor = 1 + (this->speed / 10);
 
-    this->x = move_x * speed_factor;
-    this->y = move_y * speed_factor;
+    this->x += move_x * speed_factor;
+    this->y += move_y * speed_factor;
 }
 
 void Hero::powerup()
