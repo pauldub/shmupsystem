@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "main.h"
 
 void Game::update_game(CL_InputDevice keyboard*)
 {

@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "main.h"
 
 // Create global application object:
 // You MUST include this line or the application start-up will fail to

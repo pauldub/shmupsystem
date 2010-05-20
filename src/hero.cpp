@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "main.h"
 
 Hero::Hero(CL_GraphicContext gc)
 {
