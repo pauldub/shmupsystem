@@ -1,6 +1,9 @@
+#include <string.h>
+
 namespace Renderer {
     class Window
     {
-        Window(std::string title, int width, int height, bool fullscreen);
-    }
+        public:
+            Window(const char title[], int width, int height, bool fullscreen);
+    };
 }

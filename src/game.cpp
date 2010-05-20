@@ -2,21 +2,18 @@
 
 void Game::main()
 {
-    const int ticks_per_second = 25;
+    const int ticks_per_second = 60;
     const int skip_ticks = 1000 / ticks_per_second;
     int sleep_time = 0;
     size_t next_game_tick;
 
     Renderer::Window window("Hello World!",640, 480, true);
-
-    // Alias some of the often used variables of window()
-    Input::Keyboard *keyboard(window);
+    Input::Keyboard *keyboard = new Input::Keyboard(window);
+    Hero* hero;
 
     next_game_tick = System::get_time();
 
-    Hero* hero = new Hero(gc);
-
-    while(! keyboard.get_keycode(KEY_ESCAPE))
+    while(! keyboard->get_keycode(KEY_ESCAPE))
     {
         update_game(hero);
         update_display(hero);
@@ -27,8 +24,8 @@ void Game::main()
         if ( sleep_time >= 0 ) sleep(sleep_time);
     }
 
-    delete keyboard;
-    delete hero;
+    delete *keyboard;
+    delete *hero;
 }
 
 void Game::handle_input(Hero* hero)

@@ -1,4 +1,9 @@
 #include <stddef.h>
+#include <unistd.h>
+
+#include "renderer/window.h"
+#include "input/keyboard.h"
+#include "system.h"
 
 #include "hero.h"
 
