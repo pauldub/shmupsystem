@@ -1,9 +1,10 @@
 EXAMPLE_BIN=main
-LIBS=clanApp clanCore clanDisplay clanGL
+LIBS=-lSDL
 SOURCES=src/*
+FLAGS=-Wall -Werror -pedantic
 
 shmup:
 	if [ ! -d output ]; then mkdir output ; fi
-	$(CXX) $(CXXFLAGS) $(SOURCES) -o output/$@ `pkg-config --libs $(patsubst %,%-2.0,$(LIBS))` `pkg-config --cflags $(patsubst %,%-2.0,$(LIBS))` -lpthread -Wall -Werror
+	$(CXX) $(CXXFLAGS) $(SOURCES) -o output/$@ $(LIBS) $(FLAGS)
 clean:
 	rm -rf output

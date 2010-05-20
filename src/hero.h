@@ -1,11 +1,11 @@
 class Hero
 {
     public:
-        Hero(CL_GraphicContext gc);
+        Hero();
         // Setter methods
         void move(int move_x, int move_y);
         void powerup();
-        void speedup();
+        void speedup(float factor);
         // Getter methods
         int get_x();
         int get_y();

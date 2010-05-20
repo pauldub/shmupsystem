@@ -1,3 +1,7 @@
+#include <vector>
+
+#include "bullet.h"
+
 class BulletStack
 {
     public:
