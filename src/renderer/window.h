@@ -5,5 +5,6 @@ namespace Renderer {
     {
         public:
             Window(const char title[], int width, int height, bool fullscreen);
+            void flip();
     };
 }

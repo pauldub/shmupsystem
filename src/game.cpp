@@ -9,11 +9,11 @@ void Game::main()
 
     Renderer::Window window("Hello World!",640, 480, true);
     Input::Keyboard *keyboard = new Input::Keyboard(window);
-    Hero* hero;
+    Hero* hero = new Hero();
 
     next_game_tick = System::get_time();
 
-    while(! keyboard->get_keycode(KEY_ESCAPE))
+    while(! keyboard->get_keycode(0))
     {
         update_game(hero);
         update_display(hero);
@@ -24,21 +24,12 @@ void Game::main()
         if ( sleep_time >= 0 ) sleep(sleep_time);
     }
 
-    delete *keyboard;
-    delete *hero;
+    delete keyboard;
+    delete hero;
 }
 
 void Game::handle_input(Hero* hero)
 {
-    if(keyboard.get_keycode(KEY_UP))
-    {
-        hero.move(0,5);
-    }
-
-    if(keyboard.get_keycode(KEY_DOWN))
-    {
-        hero.move(0,-5);
-    }
 }
 
 void Game::update_game(Hero* hero)
